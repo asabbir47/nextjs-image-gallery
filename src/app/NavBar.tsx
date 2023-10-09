@@ -1,6 +1,6 @@
 'use client'
 
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -20,6 +20,10 @@ export default function NavBar()
                         <Nav.Link href="/static" as={Link} active = {pathname === '/static'}>Static</Nav.Link>
                         <Nav.Link href="/dynamic" as={Link} active = {pathname === '/dynamic'}>Dynamic</Nav.Link>
                         <Nav.Link href="/isr" as={Link} active = {pathname === '/isr'}>ISR</Nav.Link>
+                        <NavDropdown title="Topics" id="topic_dropdown">
+                            <NavDropdown.Item href="/topics/health" as={Link}>Health</NavDropdown.Item>
+                            <NavDropdown.Item href="/topics/coding" as={Link}>Coding</NavDropdown.Item>
+                        </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
