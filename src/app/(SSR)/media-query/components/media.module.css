@@ -1,0 +1,17 @@
+.web {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .web {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+}

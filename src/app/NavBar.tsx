@@ -24,6 +24,9 @@ export default function NavBar()
                             <NavDropdown.Item href="/topics/health" as={Link}>Health</NavDropdown.Item>
                             <NavDropdown.Item href="/topics/coding" as={Link}>Coding</NavDropdown.Item>
                         </NavDropdown>
+                        <Nav.Link href="/search" as={Link} active = {pathname === '/search'}>Search</Nav.Link>
+                        <Nav.Link href="/media-query" as={Link} active = {pathname === '/media-query'}>Media Example</Nav.Link>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>
