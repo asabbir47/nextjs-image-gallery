@@ -1,9 +1,10 @@
 import "./globals.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Container, SSRProvider } from "@/components/bootstrap";
 import NavBar from "./NavBar";
+import { DeviceProvider } from "./AppContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,9 +23,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavBar />
         <SSRProvider>
-          <main className="mt-4">
-            <Container>{children}</Container>
-          </main>
+          <DeviceProvider>
+            <main className="mt-4">
+              <Container>{children}</Container>
+            </main>
+          </DeviceProvider>
         </SSRProvider>
       </body>
     </html>

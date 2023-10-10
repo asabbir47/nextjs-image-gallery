@@ -54,7 +54,7 @@ export default function SearchPage() {
         {isLoadingError && <p>Something went wrong</p>}
         {searchResults?.length == 0 && <p>Nothing Found</p>}
         {searchResults && (
-          <>
+          <div style={{display: 'flex',flexWrap: 'wrap'}}>
             {searchResults.map((image: UnsplashImage) => (
               <div key={image.urls.raw}>
                 <Image
@@ -71,7 +71,7 @@ export default function SearchPage() {
                 </Link>
               </div>
             ))}
-          </>
+          </div>
         )}
       </div>
     </div>
