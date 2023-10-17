@@ -2,12 +2,14 @@ import type {NextAuthOptions} from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 import CredentialProvider from 'next-auth/providers/credentials';
 
+interface Credentials{
+    username: string | null,
+    password:string | null
+} 
+
 export const options: NextAuthOptions = {
     providers: [
-        GithubProvider({
-            clientId: process.env.GITHUB_ID as string,
-            clientSecret: process.env.GITHUB_SECRET as string,
-        }),
+        
         CredentialProvider({
             name : 'Credentials',
             credentials: {
@@ -32,6 +34,16 @@ export const options: NextAuthOptions = {
                     return null;
                 }
             }
-        })
-    ]
+        }),
+        GithubProvider({
+            clientId: process.env.GITHUB_ID as string,
+            clientSecret: process.env.GITHUB_SECRET as string,
+        }),
+    ],
+    callbacks: {
+        async session({ session, token }: any) {
+            session.user = token.user;
+            return session;
+          },
+      }
 }
